@@ -13,7 +13,8 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        return view('admin.departamento.index');
+        $departamentos = Departamento::all();
+        return view('admin.departamento.index', compact('departamentos'));
     }
 
     /**
@@ -21,7 +22,7 @@ class DepartamentoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.departamento.create');
     }
 
     /**

@@ -5,3 +5,6 @@
  - login
  - register
 - Creación de modelo y recurso de departamento
+- Vista departamento
+  - index
+  - create

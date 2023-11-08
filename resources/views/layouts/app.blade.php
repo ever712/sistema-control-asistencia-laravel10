@@ -14,18 +14,20 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
     <!-- C3 Chart css -->
-    <link href="assets/libs/c3/c3.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/libs/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
+
+    @yield('css')
 
     <!-- App css -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-stylesheet" />
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
 
 <body>
@@ -54,7 +56,7 @@
                 @else
                     <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
                         href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                        <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image" class="rounded-circle">
                         <span class="pro-user-name ml-1">
                             {{ Auth::user()->name }}
                         </span>
@@ -93,12 +95,12 @@
                 <div class="logo-box">
                     <a href="index.html" class="logo text-center">
                         <span class="logo-lg">
-                            <img src="assets/images/logo-light.png" alt="" height="25">
+                            <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="25">
                             <!-- <span class="logo-lg-text-light">UBold</span> -->
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-sm-text-dark">U</span> -->
-                            <img src="assets/images/logo-sm.png" alt="" height="28">
+                            <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="28">
                         </span>
                     </a>
                 </div>
@@ -195,18 +197,20 @@
     <!-- END wrapper -->
 
     <!-- Vendor js -->
-    <script src="assets/js/vendor.min.js"></script>
+    <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 
     <!--C3 Chart-->
-    <script src="assets/libs/d3/d3.min.js"></script>
-    <script src="assets/libs/c3/c3.min.js"></script>
+    <script src="{{ asset('assets/libs/d3/d3.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/c3/c3.min.js') }}"></script>
 
-    <script src="assets/libs/echarts/echarts.min.js"></script>
+    <script src="{{ asset('assets/libs/echarts/echarts.min.js') }}"></script>
 
-    <script src="assets/js/pages/dashboard.init.js"></script>
+    <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
+
+    @yield('js')
 
     <!-- App js -->
-    <script src="assets/js/app.min.js"></script>
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
 
 </body>
 
