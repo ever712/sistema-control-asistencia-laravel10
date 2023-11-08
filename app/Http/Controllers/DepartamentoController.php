@@ -30,7 +30,9 @@ class DepartamentoController extends Controller
      */
     public function store(StoreDepartamentoRequest $request)
     {
-        //
+        // dd($request);
+        Departamento::create($request->all());
+        return redirect()->route('departamentos.index');
     }
 
     /**
@@ -46,7 +48,8 @@ class DepartamentoController extends Controller
      */
     public function edit(Departamento $departamento)
     {
-        //
+        // dd($departamento);
+        return view('admin.departamento.edit', compact('departamento'));
     }
 
     /**
@@ -54,7 +57,10 @@ class DepartamentoController extends Controller
      */
     public function update(UpdateDepartamentoRequest $request, Departamento $departamento)
     {
-        //
+        //  dd($request);
+        $request->validated();
+        $departamento->update($request->all());
+        return redirect()->route('departamentos.index');
     }
 
     /**
@@ -62,6 +68,7 @@ class DepartamentoController extends Controller
      */
     public function destroy(Departamento $departamento)
     {
-        //
+        $departamento->delete();
+        return redirect()->route('departamentos.index');
     }
 }

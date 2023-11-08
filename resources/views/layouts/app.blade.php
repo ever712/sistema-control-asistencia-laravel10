@@ -128,19 +128,11 @@
 
                             <li class="menu-title">Apps</li>
 
-                            <li>
-                                <a href="javascript: void(0);">
-                                    <i class="fe-mail"></i>
-                                    <span> Email </span>
-                                </a>
-
-                            </li>
-
 
                             <li>
-                                <a href="todo.html">
+                                <a href="{{ route('home') }}">
                                     <i class="fe-layers"></i>
-                                    <span> Todo </span>
+                                    <span> Home </span>
                                 </a>
                             </li>
 

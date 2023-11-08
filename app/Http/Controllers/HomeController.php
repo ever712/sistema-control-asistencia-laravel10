@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Departamento;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $countDepartamento = Departamento::count();
+        $ultimaFecha = Departamento::max('created_at');
+        $fechaFormateada = Carbon::parse($ultimaFecha)->format('d/m/Y');
+        return view('home',compact('countDepartamento','fechaFormateada'));
     }
 }

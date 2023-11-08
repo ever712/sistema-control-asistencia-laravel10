@@ -8,3 +8,7 @@
 - Vista departamento
   - index
   - create
+- Vista Home
+ - home
+ - bloque contador de departamentos
+ - ultima fecha agregado un registro
