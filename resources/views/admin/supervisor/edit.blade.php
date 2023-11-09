@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- <div class="card" style="width: 600px; margin: 0 auto;">
+    <div class="card" style="width: 600px; margin: 0 auto;">
         <div class="card-body">
             <h4 class="header-title mb-4 text-center">EDITAR SUPERVISOR</h4>
 
-            <form action="{{ route('supervisores.update',$supervisor) }}" method="POST">
-                @method('put')
+            <form action="{{ route('update.supervisores',$supervisor->id) }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
@@ -39,8 +38,8 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <input type="submit" class="btn btn-primary" value="Crear">
+                <input type="submit" class="btn btn-primary" value="Editar">
             </form>
         </div>
-    </div> --}}
+    </div>
 @endsection

@@ -11,7 +11,7 @@ class UpdateSupervisorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateSupervisorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' => 'required',
+            'cargo' => 'required',
+            'departamento_id' => 'required'
         ];
     }
 }

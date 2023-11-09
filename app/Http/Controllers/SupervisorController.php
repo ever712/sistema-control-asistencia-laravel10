@@ -6,6 +6,8 @@ use App\Models\Supervisor;
 use App\Http\Requests\StoreSupervisorRequest;
 use App\Http\Requests\UpdateSupervisorRequest;
 use App\Models\Departamento;
+use Illuminate\Http\Request;
+
 
 class SupervisorController extends Controller
 {
@@ -61,7 +63,11 @@ class SupervisorController extends Controller
      */
     public function update(UpdateSupervisorRequest $request, Supervisor $supervisor)
     {
-        //
+        // dd($request);
+        // dd($supervisor);
+        $request->validated();
+        $supervisor->update($request->all());
+        return redirect()->route('supervisores.index');
     }
 
     /**
@@ -72,4 +78,29 @@ class SupervisorController extends Controller
         dd($supervisor);
     }
 
+    public function editSupervisores($id){
+        // dd($id);
+        $supervisor = Supervisor::find($id);
+        $departamentos = Departamento::all();
+        return view('admin.supervisor.edit', compact('supervisor','departamentos'));
+    }
+
+    public function updateSupervisores(Request $request, $id){
+        Request()->validate([
+            'nombre' => 'required',
+            'cargo' => 'required',
+            'departamento_id' => 'required'
+        ]);
+
+        $supervisorUpdate = Supervisor::find($id);
+        $supervisorUpdate->update([
+            'nombre' => $request->nombre,
+            'cargo' => $request->cargo,
+            'departamento_id' => $request->departamento_id
+        ]);
+
+        if($supervisorUpdate){
+            return redirect()->route('supervisores.index');
+        }
+    }
 }

@@ -28,3 +28,7 @@ Route::resource('/departamentos',DepartamentoController::class);
 
 Route::resource('/supervisores',SupervisorController::class);
 
+Route::get('/edit-supervisores/{id}', [SupervisorController::class,'editSupervisores'])->name('edit.supervisores');
+
+Route::post('/update-supervisores/{id}',[SupervisorController::class, 'updateSupervisores'])->name('update.supervisores');
+

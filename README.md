@@ -17,3 +17,7 @@
 
 - revisar el crud de supervisor
 - no envia el objeto del index al controlador
+
+#### Continuacion
+
+- se realizo el crud para supervisores usando otro metodo para editar y actualizar un registro de la tabla de supervisores

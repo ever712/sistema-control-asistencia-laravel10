@@ -38,7 +38,7 @@
                                         <td>{{ $item->cargo }}</td>
                                         <td>{{ $item->departamento->nombre }}</td>
                                         <td class="d-flex">
-                                            <a href="{{ route('supervisores.edit', $item) }}"
+                                            <a href="{{ route('edit.supervisores', $item->id) }}"
                                                 class="btn btn-primary btn-rounded width-md waves-effect waves-light mr-2"
                                                 style="color:#ffffff;">Editar</a>
                                             <form action="{{ route('supervisores.destroy', $item) }}" method="post">
