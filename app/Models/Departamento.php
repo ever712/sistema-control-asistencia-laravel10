@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departamento extends Model
 {
-    use HasFactory;
 
-    protected $table = 'departamento';
+    protected $table = 'departamentos';
 
     protected $fillable = ['nombre','piso'];
+
+    public function supervisores(){
+        return $this->hasMany(Supervisor::class,'departamento_id');
+    }
 }

@@ -13,7 +13,7 @@
                     <div class="wigdet-two-content media-body">
                         <p class="m-0 text-uppercase font-weight-medium text-truncate" title="Statistics">Total Departamentos</p>
                         <h3 class="font-weight-medium my-2">Nro <span data-plugin="counterup">{{ $countDepartamento }}</span></h3>
-                        <p class="m-0">{{ $fechaFormateada }}</p>
+                        <p class="m-0">Último registro: {{ $fechaFormateada }}</p>
                     </div>
                 </div>
             </div>

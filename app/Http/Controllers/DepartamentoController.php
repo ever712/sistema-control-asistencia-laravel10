@@ -48,7 +48,6 @@ class DepartamentoController extends Controller
      */
     public function edit(Departamento $departamento)
     {
-        // dd($departamento);
         return view('admin.departamento.edit', compact('departamento'));
     }
 
@@ -68,6 +67,7 @@ class DepartamentoController extends Controller
      */
     public function destroy(Departamento $departamento)
     {
+        // dd($departamento);
         $departamento->delete();
         return redirect()->route('departamentos.index');
     }

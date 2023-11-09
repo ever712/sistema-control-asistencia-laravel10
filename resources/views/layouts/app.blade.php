@@ -143,6 +143,13 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('supervisores.index') }}">
+                                    <i class="fe-layers"></i>
+                                    <span> Supervisores </span>
+                                </a>
+                            </li>
+
                         </ul>
 
                     </div>

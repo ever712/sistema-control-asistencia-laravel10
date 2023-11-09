@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\SupervisorController;
+use App\Models\Departamento;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +25,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/departamentos',DepartamentoController::class);
+
+Route::resource('/supervisores',SupervisorController::class);
+

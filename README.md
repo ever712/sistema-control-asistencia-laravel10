@@ -12,3 +12,8 @@
  - home
  - bloque contador de departamentos
  - ultima fecha agregado un registro
+
+### Errores
+
+- revisar el crud de supervisor
+- no envia el objeto del index al controlador
