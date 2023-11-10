@@ -150,6 +150,13 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('display.instituciones') }}">
+                                    <i class="fe-layers"></i>
+                                    <span> Instituciones </span>
+                                </a>
+                            </li>
+
                         </ul>
 
                     </div>

@@ -42,3 +42,14 @@ alter table supervisor change id_departamento departamento_id int;
 -- CAMBIAR NOMBRE A LAS TABLAS
 rename table departamento to departamentos;
 rename table supervisor to supervisores;
+
+create table instituciones(
+  id int primary key auto_increment,
+  nombre varchar(255),
+  direccion varchar(255),
+  created_at timestamp default current_timestamp,
+  updated_at timestamp default current_timestamp
+);
+
+insert into instituciones (nombre,direccion) value ('UNIVERSIDAD PÚBLICA DE EL ALTO','VILLA ESPERANZA EL ALTO');
+insert into instituciones (nombre,direccion) value ('UNIVERSIDAD MAYOR DE SAN ANDRÉS','PLAZA DE EL ESTUDIANTE');

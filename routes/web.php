@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\SupervisorController;
 use App\Models\Departamento;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,16 @@ Route::get('/edit-supervisores/{id}', [SupervisorController::class,'editSupervis
 
 Route::post('/update-supervisores/{id}',[SupervisorController::class, 'updateSupervisores'])->name('update.supervisores');
 
+Route::get('/delete-supervisores/{id}',[SupervisorController::class, 'deleteSupervisores'])->name('delete.supervisores');
+
+Route::get('/display-instituciones',[InstitucionController::class, 'displayInstituciones'])->name('display.instituciones');
+
+Route::get('/create-instituciones', [InstitucionController::class, 'createInstituciones'])->name('create.instituciones');
+
+Route::post('/create-instituciones', [InstitucionController::class, 'storeInstituciones'])->name('store.instituciones');
+
+Route::get('/edit-instituciones/{id}', [InstitucionController::class,'editInstituciones'])->name('edit.instituciones');
+
+Route::post('/update-instituciones/{id}', [InstitucionController::class,'updateInstituciones'])->name('update.instituciones');
+
+Route::get('/delete-instituciones/{id}', [InstitucionController::class,'deleteInstituciones'])->name('delete.instituciones');

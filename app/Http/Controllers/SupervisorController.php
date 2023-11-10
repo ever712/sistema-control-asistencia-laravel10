@@ -103,4 +103,13 @@ class SupervisorController extends Controller
             return redirect()->route('supervisores.index');
         }
     }
+
+    public function deleteSupervisores($id){
+        $deleteSupervisor = Supervisor::find($id);
+        $deleteSupervisor->delete();
+
+        if ($deleteSupervisor) {
+           return redirect()->route('supervisores.index');
+        }
+    }
 }

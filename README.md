@@ -21,3 +21,5 @@
 #### Continuacion
 
 - se realizo el crud para supervisores usando otro metodo para editar y actualizar un registro de la tabla de supervisores
+
+- Se realizo el crud completo para la tabla de instituciones mas el recuento y la ultima fecha de registro en la vista home
