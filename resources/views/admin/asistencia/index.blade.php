@@ -11,18 +11,10 @@
     <!-- Start Content-->
     <div class="container-fluid">
 
-        <!-- start page title -->
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box">
-                    <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Adminox</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                            <li class="breadcrumb-item active">Datatable</li>
-                        </ol>
-                    </div>
-                    <h4 class="page-title">Datatable</h4>
+                    <h2 class="text-center">Módulo Asistencias</h2>
                 </div>
             </div>
         </div>
@@ -31,37 +23,36 @@
         <div class="row">
             <div class="col-12">
                 <div class="card-box table-responsive">
-                    <h4 class="header-title">Default Example</h4>
-                    <p class="sub-header">
-                        DataTables has most features enabled by default, so all you need to do to use it with your own
-                        tables is to call the construction function: <code>$().DataTable();</code>.
-                    </p>
 
                     <table id="datatable" class="table table-bordered  dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Pasante</th>
+                                <th>Ingreso</th>
+                                <th>Salida</th>
+                                <th>Observación</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
 
-
                         <tbody>
-                            <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
-                                <td>New York</td>
-                                <td>27</td>
-                                <td>2011/01/25</td>
-                                <td>$112,000</td>
-                            </tr>
+                            @foreach ($asistencias as $item)
+                                <tr>
+                                    <td>{{ $item->pasante->nombre }}</td>
+                                    <td>{{ $item->ingreso }}</td>
+                                    <td>{{ $item->salida }}</td>
+                                    <td>{{ $item->observacion }}</td>
+                                    <td>
+                                        <a href="{{ route('edit.asistencias', $item->id) }}"
+                                            class="btn btn-primary btn-rounded width-md waves-effect waves-light mr-2"
+                                            style="color:#ffffff;">Editar</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
+
                     </table>
                 </div>
             </div>

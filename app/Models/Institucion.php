@@ -19,5 +19,9 @@ class Institucion extends Model
         'updated_at',
     ];
 
+    public function pasantes(){
+        return $this->hasMany(Pasante::class,'institucion_id');
+    }
+
     public $timestamps = true;
 }

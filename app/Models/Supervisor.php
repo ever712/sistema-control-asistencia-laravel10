@@ -16,4 +16,8 @@ class Supervisor extends Model
     {
         return $this->belongsTo(Departamento::class,'departamento_id');
     }
+
+    public function pasantes(){
+        return $this->hasMany(Pasante::class,'supervisor_id');
+    }
 }

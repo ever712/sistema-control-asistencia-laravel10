@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\InstitucionController;
+use App\Http\Controllers\PasanteController;
 use App\Http\Controllers\SupervisorController;
-use App\Models\Departamento;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,13 +37,23 @@ Route::post('/update-supervisores/{id}',[SupervisorController::class, 'updateSup
 Route::get('/delete-supervisores/{id}',[SupervisorController::class, 'deleteSupervisores'])->name('delete.supervisores');
 
 Route::get('/display-instituciones',[InstitucionController::class, 'displayInstituciones'])->name('display.instituciones');
-
 Route::get('/create-instituciones', [InstitucionController::class, 'createInstituciones'])->name('create.instituciones');
-
 Route::post('/create-instituciones', [InstitucionController::class, 'storeInstituciones'])->name('store.instituciones');
-
 Route::get('/edit-instituciones/{id}', [InstitucionController::class,'editInstituciones'])->name('edit.instituciones');
-
 Route::post('/update-instituciones/{id}', [InstitucionController::class,'updateInstituciones'])->name('update.instituciones');
-
 Route::get('/delete-instituciones/{id}', [InstitucionController::class,'deleteInstituciones'])->name('delete.instituciones');
+
+
+Route::get('/display-pasantes',[PasanteController::class, 'dispayPasantes'])->name('display.pasantes');
+Route::get('/create-pasantes', [PasanteController::class, 'createPasantes'])->name('create.pasantes');
+Route::post('/create-pasantes', [PasanteController::class, 'storePasantes'])->name('store.pasantes');
+Route::get('/edit-pasantes/{id}', [PasanteController::class,'editPasantes'])->name('edit.pasantes');
+Route::post('/update-pasantes/{id}', [PasanteController::class,'updatePasantes'])->name('update.pasantes');
+Route::get('/delete-pasantes/{id}', [PasanteController::class,'deletePasantes'])->name('delete.pasantes');
+
+Route::get('/display-asistencias',[AsistenciaController::class, 'displayAsistencias'])->name('display.asistencias');
+Route::get('/create-asistencias', [AsistenciaController::class, 'createAsistencias'])->name('create.asistencias');
+Route::post('/create-asistencias', [AsistenciaController::class, 'storeAsistencias'])->name('store.asistencias');
+Route::get('/edit-asistencias/{id}', [AsistenciaController::class,'editAsistencias'])->name('edit.asistencias');
+Route::post('/update-asistencias/{id}', [AsistenciaController::class,'updateAsistencias'])->name('update.asistencias');
+Route::get('/delete-asistencias/{id}', [AsistenciaController::class,'deleteAsistencias'])->name('delete.asistencias');

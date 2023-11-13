@@ -22,7 +22,8 @@
     @yield('css')
 
     <!-- App css -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"
+        id="bootstrap-stylesheet" />
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-stylesheet" />
 
@@ -35,58 +36,60 @@
     <div id="wrapper">
 
 
-        <!-- Topbar Start -->
-        <div class="navbar-custom">
-            <ul class="list-unstyled topnav-menu float-right mb-0">
 
-                <li class="dropdown notification-list">
 
-                    @guest
-                        @if (Route::has('login'))
-                    <li class="nav-item">
+        @guest
+            @if (Route::has('login'))
+                {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @endif
+                    </li> --}}
+            @endif
 
-                    @if (Route::has('register'))
-                        {{-- <li class="nav-item">
+            @if (Route::has('register'))
+                {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li> --}}
-                    @endif
-                @else
-                    <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
-                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image" class="rounded-circle">
-                        <span class="pro-user-name ml-1">
-                            {{ Auth::user()->name }}
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome !</h6>
+            @endif
+        @else
+            <!-- Topbar Start -->
+            <div class="navbar-custom">
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
+                            href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image"
+                                class="rounded-circle">
+                            <span class="pro-user-name ml-1">
+                                {{ Auth::user()->name }}
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome !</h6>
+                            </div>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i class="fe-lock"></i>
+                                <span>Edit Profile</span>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <!-- item-->
+                            <a href="{{ route('logout') }}" class="dropdown-item notify-item"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <i class="fe-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+
                         </div>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-lock"></i>
-                            <span>Edit Profile</span>
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <!-- item-->
-                        <a href="{{ route('logout') }}" class="dropdown-item notify-item"
-                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            <i class="fe-log-out"></i>
-                            <span>Logout</span>
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-
-                    </div>
                     </li>
 
                 </ul>
@@ -137,7 +140,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route("departamentos.index") }}">
+                                <a href="{{ route('departamentos.index') }}">
                                     <i class="fe-layers"></i>
                                     <span> Departamentos </span>
                                 </a>
@@ -157,11 +160,24 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('display.pasantes') }}">
+                                    <i class="fe-layers"></i>
+                                    <span> Pasantes </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('display.asistencias') }}">
+                                    <i class="fe-layers"></i>
+                                    <span> Asistencias </span>
+                                </a>
+                            </li>
+
                         </ul>
 
                     </div>
                     <!-- End Sidebar -->
-        @endguest
                     <div class="clearfix"></div>
 
                 </div>
@@ -176,7 +192,7 @@
 
             <div class="content-page">
                 <div class="content">
-            @yield('content')
+                    @yield('content')
                 </div> <!-- end content -->
 
 
@@ -195,6 +211,7 @@
 
             </div>
 
+        @endguest
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->

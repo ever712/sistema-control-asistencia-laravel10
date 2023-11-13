@@ -53,3 +53,37 @@ create table instituciones(
 
 insert into instituciones (nombre,direccion) value ('UNIVERSIDAD PÚBLICA DE EL ALTO','VILLA ESPERANZA EL ALTO');
 insert into instituciones (nombre,direccion) value ('UNIVERSIDAD MAYOR DE SAN ANDRÉS','PLAZA DE EL ESTUDIANTE');
+
+create table pasantes(
+  id int primary key auto_increment,
+  nombre varchar(255),
+  email varchar(255),
+  password varchar(255),
+  departamento_id int,
+  supervisor_id int,
+  institucion_id int,
+  created_at timestamp default current_timestamp,
+  updated_at timestamp default current_timestamp,
+  foreign key (departamento_id) references departamentos(id),
+  foreign key (supervisor_id) references supervisores(id),
+  foreign key (institucion_id) references instituciones(id)
+);
+
+insert into pasantes (nombre,email,departamento_id,supervisor_id,institucion_id) value ('LEO CHARLY QUISPE MARQUEZ','leo@gmail.com',2,2,1);
+insert into pasantes (nombre,email,departamento_id,supervisor_id,institucion_id) value ('ALEJANDRA QUISPE CHOQUECALLO','ale@gmail.com',3,11,3);
+
+create table asistencias(
+  id int primary key auto_increment,
+  pasante_id int,
+  observacion varchar(255),
+  ingreso timestamp default current_timestamp null,
+  salida timestamp default current_timestamp null,
+  created_at timestamp default current_timestamp,
+  updated_at timestamp default current_timestamp,
+  foreign key (pasante_id) references pasantes(id)
+);
+
+insert into asistencias (pasante_id,observacion) value (1,'Incoveniente en el bloqueo de los mineros');
+insert into asistencias (pasante_id,observacion) value (2,'Marcado de asistencia en El Alto');
+
+
