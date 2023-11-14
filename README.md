@@ -27,3 +27,11 @@
 - Se realizo el crud completo de la tabla pasantes mas el recuento y la ultima fecha de registro en la vista home
 
 - Se realizo el show de asistencia y el edit de asistencia solo para el campo de observaciones por cuestiones de la aplicacion mas el recuento y la ultima fecha de la vista home
+
+- Se trabajo en la vista de los pasantes es un panel donde le permite al pasante ingresar su número de carnet y la observacion este último es opcional, inmediatamente le mostrará un mensaje que le indica que fue registrada su entrada, y para la salida sera el mismo panel que nuevamente tendra que introducir su nro de carnet y esta vez le mostrar un mensaje su salida se ha registrado correctamente
+
+### IMPORTANTE
+
+- Tener la hora siempre sincronizado y a la hora correcta 24/7 el sistema se basa en el tiempo real
+- El servidor debe tener la hora adecuada y bien configurada America/La Paz 
+- Si la hora no esta correcta del servidor tendra errores a la hora de registrar las asistencias

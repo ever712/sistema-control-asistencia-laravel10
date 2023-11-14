@@ -29,6 +29,7 @@
 
                         <thead>
                             <tr>
+                                <th>Fecha</th>
                                 <th>Pasante</th>
                                 <th>Ingreso</th>
                                 <th>Salida</th>
@@ -40,6 +41,7 @@
                         <tbody>
                             @foreach ($asistencias as $item)
                                 <tr>
+                                    <td>{{ \Carbon\Carbon::parse($item->ingreso)->format('d-m-Y') }}</td>
                                     <td>{{ $item->pasante->nombre }}</td>
                                     <td>{{ $item->ingreso }}</td>
                                     <td>{{ $item->salida }}</td>

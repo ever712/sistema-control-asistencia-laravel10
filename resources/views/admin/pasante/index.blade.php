@@ -35,6 +35,7 @@
                         <thead>
                             <tr>
                                 <th>Nombre</th>
+                                <th>CI</th>
                                 <th>Departamento</th>
                                 <th>Supervisor</th>
                                 <th>Institución</th>
@@ -46,6 +47,7 @@
                             @foreach ($pasantes as $item)
                                 <tr>
                                     <td>{{ $item->nombre }}</td>
+                                    <td>{{ $item->ci }}</td>
                                     <td>{{ $item->departamento->nombre }}</td>
                                     <td>{{ $item->supervisor->nombre }}</td>
                                     <td>{{ $item->institucion->nombre }}</td>

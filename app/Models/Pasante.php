@@ -14,6 +14,7 @@ class Pasante extends Model
     protected $fillable = [
         'id',
         'nombre',
+        'ci',
         'email',
         'password',
         'departamento_id',

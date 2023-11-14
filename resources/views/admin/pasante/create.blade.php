@@ -17,6 +17,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="ci">NUMERO DE CARNET DE INDENTIDAD</label>
+                    <input name="ci" type="text" class="form-control" id="ci" aria-describedby="emailHelp"
+                        placeholder="Ingrese el número de carnet de identidad">
+                    @error('ci')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="email">Email</label>
                     <input name="email" type="text" class="form-control" id="email" aria-describedby="emailHelp"
                         placeholder="Ingrese el correo del Pasante">

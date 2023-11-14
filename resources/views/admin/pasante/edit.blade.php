@@ -16,6 +16,14 @@
 
                 </div>
                 <div class="form-group">
+                    <label for="ci">INGRESE EL NUMERO DEL CARNET DE IDENTIDAD</label>
+                    <input name="ci" type="text" class="form-control" id="ci" aria-describedby="emailHelp" value="{{ $pasante->ci }}">
+                    @error('ci')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                </div>
+                <div class="form-group">
                     <label for="email">Email</label>
                     <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" value="{{ $pasante->email }}">
                     @error('email')

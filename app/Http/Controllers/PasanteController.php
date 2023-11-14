@@ -26,6 +26,7 @@ class PasanteController extends Controller
         // dd($request);
         Request()->validate([
             'nombre' => 'required',
+            'ci' => 'required',
             'email' => 'required',
             'departamento_id' => 'required',
             'supervisor_id' => 'required',
@@ -36,6 +37,7 @@ class PasanteController extends Controller
 
         $createPasante = Pasante::create([
             'nombre' => $request->nombre,
+            'ci' => $request->ci,
             'email' => $request->email,
             'password' => bcrypt($defaulPassword),
             'departamento_id' => $request->departamento_id,
@@ -60,6 +62,7 @@ class PasanteController extends Controller
     public function updatePasantes(Request $request, $id){
         Request()->validate([
             'nombre' => 'required',
+            'ci' => 'required',
             'email' => 'required',
             'departamento_id' => 'required',
             'supervisor_id' => 'required',
@@ -69,6 +72,7 @@ class PasanteController extends Controller
         $pasanteUpdate = Pasante::find($id);
         $pasanteUpdate->update([
             'nombre' => $request->nombre,
+            'ci' => $request->ci,
             'email' => $request->email,
             'departamento_id' => $request->departamento_id,
             'supervisor_id' => $request->supervisor_id,

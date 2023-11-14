@@ -86,4 +86,13 @@ create table asistencias(
 insert into asistencias (pasante_id,observacion) value (1,'Incoveniente en el bloqueo de los mineros');
 insert into asistencias (pasante_id,observacion) value (2,'Marcado de asistencia en El Alto');
 
+ALTER TABLE pasantes ADD COLUMN ci varchar(255) null AFTER email;
+
+alter table pasantes drop column ci;
+
+insert into asistencias (pasante_id,observacion) value (1,'Cell sintio el verdadero terror');
+
+delete from asistencias;
+
+alter table asistencias auto_increment = 1;
 

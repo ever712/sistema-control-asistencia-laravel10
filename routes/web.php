@@ -3,6 +3,7 @@
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\InstitucionController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PasanteController;
 use App\Http\Controllers\SupervisorController;
 use Illuminate\Support\Facades\Route;
@@ -57,3 +58,4 @@ Route::post('/create-asistencias', [AsistenciaController::class, 'storeAsistenci
 Route::get('/edit-asistencias/{id}', [AsistenciaController::class,'editAsistencias'])->name('edit.asistencias');
 Route::post('/update-asistencias/{id}', [AsistenciaController::class,'updateAsistencias'])->name('update.asistencias');
 Route::get('/delete-asistencias/{id}', [AsistenciaController::class,'deleteAsistencias'])->name('delete.asistencias');
+Route::post('/ingreso-asistencias', [LandingController::class,'registrar'])->name('ingreso.asistencias');
