@@ -97,3 +97,5 @@ delete from asistencias;
 alter table asistencias auto_increment = 1;
 
 alter table pasantes drop column password;
+
+alter table users add column image varchar(255) default 'avatar-1.jpg' after email;

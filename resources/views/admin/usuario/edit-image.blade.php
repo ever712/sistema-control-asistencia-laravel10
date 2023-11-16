@@ -20,7 +20,7 @@
 
                     <div class="card-body p-4">
 
-                        <h4 class="header-title mt-0 mb-4 text-center">CAMBIAR CONTRASEÑA</h4>
+                        <h4 class="header-title mt-0 mb-4 text-center">CAMBIAR IMAGEN DEL PERFIL</h4>
                         <div class="account-box">
 
                             <div class="account-content">
@@ -29,44 +29,43 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div>
-                                                <form method="post" action="{{ route('update.usuarios') }}"
-                                                    class="form-horizontal">
+                                                <form method="post" action="{{ route('update-image.usuarios') }}"
+                                                    class="form-horizontal" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="form-group row">
-                                                        <label class="col-md-4 col-form-label"
-                                                            for="example-password">INGRESA LA NUEVA CONTRASEÑA
-                                                            </label>
-                                                        <div class="col-md-8">
-                                                            <input name="password" type="password" id="example-password"
-                                                                class="form-control" value="">
-                                                            @error('password')
+                                                        <div class="col-md-12">
+                                                            <input name="image" type="file" id="example-fileinput"
+                                                                class="form-control">
+
+                                                            @error('image')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
-
-                                                    <div class="d-flex justify-content-end">
-                                                        <a href="{{ route('profile') }}" class="btn btn-danger">Volver</a>
-                                                        <button type="submit" class="btn btn-primary ml-2">Cambiar
-                                                            </button>
-                                                    </div>
-                                                </form>
                                             </div>
-                                        </div>
 
+                                            <div class="d-flex justify-content-end">
+                                                <a href="{{ route('profile') }}" class="btn btn-danger">Volver</a>
+                                                <button type="submit" class="btn btn-primary ml-2">Cambiar
+                                                </button>
+                                            </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <!-- end row -->
+
                                 </div>
+                                <!-- end row -->
                             </div>
                         </div>
-
                     </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-            </div>
-            <!-- end row -->
-        @endsection
 
-    </div> <!-- end container-fluid -->
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end row -->
+    @endsection
+
+</div> <!-- end container-fluid -->
 @endsection

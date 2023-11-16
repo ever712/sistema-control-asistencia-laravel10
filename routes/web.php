@@ -64,3 +64,5 @@ Route::post('/ingreso-asistencias', [LandingController::class,'registrar'])->nam
 Route::get('/profile',[UsersController::class, 'profile'])->name('profile');
 Route::get('/edit-usuarios/{id}', [UsersController::class,'editUsuario'])->name('edit.usuarios');
 Route::post('/update-profile', [UsersController::class,'updateUsuario'])->name('update.usuarios');
+Route::get('/edit-profile-image/{id}', [UsersController::class,'editImageUsuario'])->name('edit-image.usuarios');
+Route::post('/update-profile-image', [UsersController::class,'updateImageUsuario'])->name('update-image.usuarios');

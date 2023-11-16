@@ -30,8 +30,13 @@
 
 - Se trabajo en la vista de los pasantes es un panel donde le permite al pasante ingresar su número de carnet y la observacion este último es opcional, inmediatamente le mostrará un mensaje que le indica que fue registrada su entrada, y para la salida sera el mismo panel que nuevamente tendra que introducir su nro de carnet y esta vez le mostrar un mensaje su salida se ha registrado correctamente
 
+- se incorporo la opcion de cambiar contraseña y actualizar imagen de perfil para los administradores del sistema
+
 ### IMPORTANTE
 
 - Tener la hora siempre sincronizado y a la hora correcta 24/7 el sistema se basa en el tiempo real
 - El servidor debe tener la hora adecuada y bien configurada America/La Paz 
 - Si la hora no esta correcta del servidor tendra errores a la hora de registrar las asistencias
+
+### LIBRERIAS
+- para la libreria Intervention Image se debe tener instalado la extension de php "gd" en caso de windows se debe descomentar la linea "extension:gd"

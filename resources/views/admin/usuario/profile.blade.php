@@ -24,10 +24,8 @@
                         <div class="account-box">
                             <div class="account-logo-box">
                                 <div class="text-center">
-                                    <a href="index.html">
-                                        <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image"
-                                            class="rounded-circle">
-                                    </a>
+                                    <img src="{{ asset('assets/images/users/' . $profile->image . '') }}" alt="user-image"
+                                        class="rounded-circle">
                                 </div>
                             </div>
 
@@ -46,10 +44,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                                        <a href="{{ route('edit.usuarios',$profile->id) }}"
-                                            class="text-info"
-                                            >Cambiar Contraseña</a>
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ route('edit.usuarios', $profile->id) }}" class="text-info">Cambiar Contraseña</a>
+                                <a href="{{ route('edit-image.usuarios', $profile->id) }}" class="text-success">Cambiar Imagen de Perfil</a>
+                            </div>
                         </div>
                         <!-- end card-body -->
                     </div>
