@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+use RealRashid\SweetAlert\Facades\Alert; 
 
 class UsersController extends Controller
 {
@@ -35,7 +36,10 @@ class UsersController extends Controller
         $updatePassword->update([
             'password' => Hash::make($request->password),
         ]);
-        return redirect()->route('home');
+
+        Alert::alert()->success('Contraseña Actualizada','La contraseña ha sido actualizada correctamente');
+
+        return redirect()->route('profile');
     }
 
     public function editImageUsuario($id)
@@ -44,48 +48,13 @@ class UsersController extends Controller
         return view('admin.usuario.edit-image', compact('usuario'));
     }
 
-    // public function updateImageUsuario(Request $request)
-    // {
-    //     Request()->validate([
-    //         'image' => 'required'
-    //     ]);
-
-    //     $destinationPath = 'assete/images/users';
-    //     $myImage = $request->image->getClientOriginalName();
-    //     $request->image->move(public_path($destinationPath), $myImage);
-
-    //     $updateImage = User::find(Auth::user()->id);
-    //     $updateImage->update([
-    //         'image' => $request->image,
-    //     ]);
-    //     return redirect()->route('profile');
-    // }
-    // public function updateImageUsuario(Request $request)
-    // {
-    //     $request->validate([
-    //         'image' => 'required',
-    //     ]);
-
-    //     $destinationPath = 'assets/images/users';
-    //     $myImage = $request->image->hashName(); // Genera un nombre único
-
-    //     $request->image->move(public_path($destinationPath), $myImage);
-
-    //     $user = User::find(Auth::user()->id);
-
-    //     $user->update([
-    //         'image' => $myImage,
-    //     ]);
-    //     if ($user) {
-    //         return redirect()->route('profile');
-    //     }
-    // }
     public function updateImageUsuario(Request $request)
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        // dd($request->image);
         $destinationPath = 'assets/images/users';
         $myImage = $request->image->hashName();
 
@@ -98,6 +67,8 @@ class UsersController extends Controller
         $user->update([
             'image' => $myImage,
         ]);
+
+        Alert::alert()->success('Imagen Actualizado','La imagen de perfil ha sido actualizada correctamente.');
 
         return redirect()->route('profile');
     }

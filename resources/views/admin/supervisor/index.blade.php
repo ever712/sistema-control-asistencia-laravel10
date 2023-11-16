@@ -7,20 +7,12 @@
 @endsection
 @section('content')
     <div class="container-fluid">
-        <!-- start page title -->
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box">
-                    <h2 class="text-center">Módulo Supervisores</h2>
-                </div>
-            </div>
-        </div>
-        <!-- end page title -->
 
   <div class="row">
             <div class="col-12">
                 <div class="card-box table-responsive">
 
+                    <h2 class="text-center">MODULO DE SUPERVISORES</h2>
                     <a href="{{ route('supervisores.create') }}"
                         class="btn btn-success btn-rounded width-md waves-effect waves-light mb-3"
                         style="color:#ffffff;">Agregar

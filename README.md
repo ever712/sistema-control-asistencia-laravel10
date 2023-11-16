@@ -40,3 +40,4 @@
 
 ### LIBRERIAS
 - para la libreria Intervention Image se debe tener instalado la extension de php "gd" en caso de windows se debe descomentar la linea "extension:gd"
+- en kali linux se instala la extension de gd "sudo apt-get install php-gd"

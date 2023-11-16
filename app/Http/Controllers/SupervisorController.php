@@ -7,6 +7,7 @@ use App\Http\Requests\StoreSupervisorRequest;
 use App\Http\Requests\UpdateSupervisorRequest;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert; 
 
 
 class SupervisorController extends Controller
@@ -36,6 +37,8 @@ class SupervisorController extends Controller
     {
         // dd($request);
         Supervisor::create($request->all());
+
+        Alert::alert()->success('Supervisor Creado','El supervisor se ha creado correctamente');
         return redirect()->route('supervisores.index');
     }
 
@@ -67,6 +70,7 @@ class SupervisorController extends Controller
         // dd($supervisor);
         $request->validated();
         $supervisor->update($request->all());
+        Alert::alert()->success('Supervisor Editado','El supervisor se ha editado correctamente');
         return redirect()->route('supervisores.index');
     }
 
@@ -100,6 +104,8 @@ class SupervisorController extends Controller
         ]);
 
         if($supervisorUpdate){
+
+            Alert::alert()->success('Supervisor Editado','El supervisor se ha editado correctamente');
             return redirect()->route('supervisores.index');
         }
     }
@@ -109,7 +115,9 @@ class SupervisorController extends Controller
         $deleteSupervisor->delete();
 
         if ($deleteSupervisor) {
-           return redirect()->route('supervisores.index');
+
+            Alert::alert()->success('Supervisor Eliminado','El supervisor se ha eliminado correctamente');
+            return redirect()->route('supervisores.index');
         }
     }
 }

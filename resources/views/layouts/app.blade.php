@@ -21,6 +21,7 @@
 
     @yield('css')
 
+
     <!-- App css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"
         id="bootstrap-stylesheet" />
@@ -32,6 +33,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <!-- Begin page -->
     <div id="wrapper">
 
@@ -58,7 +60,7 @@
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
                             href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="{{ asset('assets/images/users/'.Auth::user()->image.'') }}" alt="user-image"
+                            <img src="{{ asset('assets/images/users/' . Auth::user()->image . '') }}" alt="user-image"
                                 class="rounded-circle">
                             <span class="pro-user-name ml-1">
                                 {{ Auth::user()->name }}<i class="mdi mdi-chevron-down"></i>
@@ -231,6 +233,7 @@
     <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
 
     @yield('js')
+
 
     <!-- App js -->
     <script src="{{ asset('assets/js/app.min.js') }}"></script>

@@ -1,18 +1,5 @@
 @extends('layouts.app')
 
-@section('content')
-    <!-- Start Content-->
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box">
-                    <h2 class="text-center">PERFIL DE USUARIO</h2>
-                </div>
-            </div>
-        </div>
-        <!-- end page title -->
-
     @section('content')
         <div class="row justify-content-center mt-3">
             <div class="col-md-8 col-lg-6 col-xl-5">
@@ -55,6 +42,3 @@
                 </div>
                 <!-- end row -->
             @endsection
-
-        </div> <!-- end container-fluid -->
-    @endsection

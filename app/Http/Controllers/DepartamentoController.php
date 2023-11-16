@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Departamento;
 use App\Http\Requests\StoreDepartamentoRequest;
 use App\Http\Requests\UpdateDepartamentoRequest;
+use RealRashid\SweetAlert\Facades\Alert; 
 
 class DepartamentoController extends Controller
 {
@@ -32,6 +33,7 @@ class DepartamentoController extends Controller
     {
         // dd($request);
         Departamento::create($request->all());
+        Alert::alert()->success('Departamento Creado','El departamento se ha creado correctamente');
         return redirect()->route('departamentos.index');
     }
 
@@ -59,6 +61,7 @@ class DepartamentoController extends Controller
         //  dd($request);
         $request->validated();
         $departamento->update($request->all());
+        Alert::alert()->success('Departamento Editado','El departamento se ha editado correctamente');
         return redirect()->route('departamentos.index');
     }
 
@@ -69,6 +72,7 @@ class DepartamentoController extends Controller
     {
         // dd($departamento);
         $departamento->delete();
+        Alert::alert()->success('Departamento Eliminado','El departamento se ha eliminado correctamente');
         return redirect()->route('departamentos.index');
     }
 }
