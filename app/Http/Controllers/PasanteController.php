@@ -33,13 +33,11 @@ class PasanteController extends Controller
             'institucion_id' => 'required',
         ]);
 
-        $defaulPassword = $request->email;
 
         $createPasante = Pasante::create([
             'nombre' => $request->nombre,
             'ci' => $request->ci,
             'email' => $request->email,
-            'password' => bcrypt($defaulPassword),
             'departamento_id' => $request->departamento_id,
             'supervisor_id' => $request->supervisor_id,
             'institucion_id' => $request->institucion_id,

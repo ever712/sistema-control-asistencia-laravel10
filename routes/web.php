@@ -6,6 +6,7 @@ use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PasanteController;
 use App\Http\Controllers\SupervisorController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,3 +60,7 @@ Route::get('/edit-asistencias/{id}', [AsistenciaController::class,'editAsistenci
 Route::post('/update-asistencias/{id}', [AsistenciaController::class,'updateAsistencias'])->name('update.asistencias');
 Route::get('/delete-asistencias/{id}', [AsistenciaController::class,'deleteAsistencias'])->name('delete.asistencias');
 Route::post('/ingreso-asistencias', [LandingController::class,'registrar'])->name('ingreso.asistencias');
+
+Route::get('/profile',[UsersController::class, 'profile'])->name('profile');
+Route::get('/edit-usuarios/{id}', [UsersController::class,'editUsuario'])->name('edit.usuarios');
+Route::post('/update-profile', [UsersController::class,'updateUsuario'])->name('update.usuarios');

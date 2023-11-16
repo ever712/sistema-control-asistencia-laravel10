@@ -16,7 +16,6 @@ class Pasante extends Model
         'nombre',
         'ci',
         'email',
-        'password',
         'departamento_id',
         'supervisor_id',
         'institucion_id',

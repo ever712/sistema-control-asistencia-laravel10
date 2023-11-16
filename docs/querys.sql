@@ -96,3 +96,4 @@ delete from asistencias;
 
 alter table asistencias auto_increment = 1;
 
+alter table pasantes drop column password;

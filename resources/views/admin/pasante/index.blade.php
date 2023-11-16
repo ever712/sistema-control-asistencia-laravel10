@@ -39,6 +39,7 @@
                                 <th>Departamento</th>
                                 <th>Supervisor</th>
                                 <th>Institución</th>
+                                <th>Email</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -51,6 +52,7 @@
                                     <td>{{ $item->departamento->nombre }}</td>
                                     <td>{{ $item->supervisor->nombre }}</td>
                                     <td>{{ $item->institucion->nombre }}</td>
+                                    <td>{{ $item->email }}</td>
                                     <td>
                                         <a href="{{ route('edit.pasantes', $item->id) }}"
                                             class="btn btn-primary btn-rounded width-md waves-effect waves-light mr-2"
