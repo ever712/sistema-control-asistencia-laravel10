@@ -40,8 +40,19 @@
 
 
 
-        @auth('web')
-            
+        @guest
+            @if (Route::has('login'))
+                {{-- <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li> --}}
+            @endif
+
+            @if (Route::has('register'))
+                {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li> --}}
+            @endif
+        @else
             <!-- Topbar Start -->
             <div class="navbar-custom">
                 <ul class="list-unstyled topnav-menu float-right mb-0">
@@ -70,14 +81,15 @@
                             <div class="dropdown-divider"></div>
 
                             <!-- item-->
-                            <a href="{{ route('admin.logout') }}" class="dropdown-item notify-item">
+                            <a href="{{ route('logout') }}" class="dropdown-item notify-item"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 <i class="fe-log-out"></i>
                                 <span>Logout</span>
                             </a>
 
-                            {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
-                            </form> --}}
+                            </form>
 
                         </div>
                     </li>
@@ -200,9 +212,8 @@
                 <!-- end Footer -->
 
             </div>
-        @else
 
-        @endauth
+        @endguest
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->

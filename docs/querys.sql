@@ -99,3 +99,7 @@ alter table asistencias auto_increment = 1;
 alter table pasantes drop column password;
 
 alter table users add column image varchar(255) default 'avatar-1.jpg' after email;
+
+alter table pasantes add column image varchar(255) default 'avatar-2.jpg' after ci;
+
+alter table pasantes add column password varchar(255) not null after image;

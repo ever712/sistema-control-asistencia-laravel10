@@ -32,6 +32,8 @@
 
 - se incorporo la opcion de cambiar contraseña y actualizar imagen de perfil para los administradores del sistema
 
+- se incorporo los sweet alert revisar el de confirmacion para eliminar, se realizo el panel dashboard para los pasantes se creo un middleware para pasantes esto es para que cuando ingresen por el enlace a login de pasante te dirija a sesion ya creada, se soluciono el problema de cuando cerrabas session se cerraban tanto de administradores y de pasantes se logro haciendolo manual
+
 ### IMPORTANTE
 
 - Tener la hora siempre sincronizado y a la hora correcta 24/7 el sistema se basa en el tiempo real

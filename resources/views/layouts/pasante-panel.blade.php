@@ -40,7 +40,7 @@
 
 
 
-        @auth('web')
+        @auth('pasante')
             
             <!-- Topbar Start -->
             <div class="navbar-custom">
@@ -49,10 +49,10 @@
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
                             href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="{{ asset('assets/images/users/' . Auth::user()->image . '') }}" alt="user-image"
+                            <img src="{{ asset('assets/images/users/' . Auth::guard('pasante')->user()->image . '') }}" alt="user-image"
                                 class="rounded-circle">
                             <span class="pro-user-name ml-1">
-                                {{ Auth::user()->name }}<i class="mdi mdi-chevron-down"></i>
+                                {{ Auth::guard('pasante')->user()->nombre }}<i class="mdi mdi-chevron-down"></i>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -70,7 +70,7 @@
                             <div class="dropdown-divider"></div>
 
                             <!-- item-->
-                            <a href="{{ route('admin.logout') }}" class="dropdown-item notify-item">
+                            <a href="{{ route('pasantes.logout') }}" class="dropdown-item notify-item">
                                 <i class="fe-log-out"></i>
                                 <span>Logout</span>
                             </a>
@@ -133,34 +133,6 @@
                                 <a href="{{ route('departamentos.index') }}">
                                     <i class="fe-layers"></i>
                                     <span> Departamentos </span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="{{ route('supervisores.index') }}">
-                                    <i class="fe-layers"></i>
-                                    <span> Supervisores </span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="{{ route('display.instituciones') }}">
-                                    <i class="fe-layers"></i>
-                                    <span> Instituciones </span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="{{ route('display.pasantes') }}">
-                                    <i class="fe-layers"></i>
-                                    <span> Pasantes </span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="{{ route('display.asistencias') }}">
-                                    <i class="fe-layers"></i>
-                                    <span> Asistencias </span>
                                 </a>
                             </li>
 

@@ -7,22 +7,29 @@ use App\Models\Institucion;
 use App\Models\Pasante;
 use App\Models\Supervisor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class PasanteController extends Controller
 {
-    public function dispayPasantes(){
+
+
+    public function dispayPasantes()
+    {
         $pasantes = Pasante::all();
         return view('admin.pasante.index', compact('pasantes'));
     }
 
-    public function createPasantes(){
+    public function createPasantes()
+    {
         $departamentos = Departamento::all();
         $supervisores = Supervisor::all();
         $instituciones = Institucion::all();
-        return view('admin.pasante.create',compact('departamentos','supervisores','instituciones'));
+        return view('admin.pasante.create', compact('departamentos', 'supervisores', 'instituciones'));
     }
 
-    public function storePasantes(Request $request){
+    public function storePasantes(Request $request)
+    {
         // dd($request);
         Request()->validate([
             'nombre' => 'required',
@@ -38,6 +45,7 @@ class PasanteController extends Controller
             'nombre' => $request->nombre,
             'ci' => $request->ci,
             'email' => $request->email,
+            'password' => Hash::make($request->email),
             'departamento_id' => $request->departamento_id,
             'supervisor_id' => $request->supervisor_id,
             'institucion_id' => $request->institucion_id,
@@ -48,16 +56,18 @@ class PasanteController extends Controller
         }
     }
 
-    public function editPasantes($id){
+    public function editPasantes($id)
+    {
         // dd($id);
         $pasante = Pasante::find($id);
         $departamentos = Departamento::all();
         $supervisores = Supervisor::all();
         $instituciones = Institucion::all();
-        return view('admin.pasante.edit',compact('pasante','departamentos','supervisores','instituciones'));
+        return view('admin.pasante.edit', compact('pasante', 'departamentos', 'supervisores', 'instituciones'));
     }
 
-    public function updatePasantes(Request $request, $id){
+    public function updatePasantes(Request $request, $id)
+    {
         Request()->validate([
             'nombre' => 'required',
             'ci' => 'required',
@@ -72,6 +82,7 @@ class PasanteController extends Controller
             'nombre' => $request->nombre,
             'ci' => $request->ci,
             'email' => $request->email,
+            'password' => Hash::make($request->email),
             'departamento_id' => $request->departamento_id,
             'supervisor_id' => $request->supervisor_id,
             'institucion_id' => $request->institucion_id,
@@ -82,12 +93,40 @@ class PasanteController extends Controller
         }
     }
 
-    public function deletePasantes($id){
+    public function deletePasantes($id)
+    {
         $deletePasante = Pasante::find($id);
         $deletePasante->delete();
 
         if ($deletePasante) {
             return redirect()->route('display.pasantes');
         }
+    }
+
+    public function viewLogin()
+    {
+        return view('admin.pasante.view-login');
+    }
+
+    public function checkLogin(Request $request)
+    {
+        $remember_me = $request->has('remember_me') ? true : false;
+
+        if (auth()->guard('pasante')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
+
+            return redirect()->route('pasantes.dashboard');
+        }
+        return redirect()->back()->with(['error' => 'error logging in']);
+    }
+
+    public function indexDashboard()
+    {
+        return view('admin.pasante.panel-pasante');
+    }
+
+    public function cerrarSesion()
+    {
+        Auth::guard('pasante')->logout();
+        return redirect()->route('view.login');
     }
 }

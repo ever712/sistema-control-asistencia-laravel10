@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="text-right">
-                                    <a class="nav-link" href="#"><b>INGRESAR</b></a>
+                                    <a class="nav-link" href="{{ route('view.login') }}"><b>INGRESAR</b></a>
                                 </div>
                             </div>
                         </div>

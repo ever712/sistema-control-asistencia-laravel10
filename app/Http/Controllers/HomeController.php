@@ -9,6 +9,7 @@ use App\Models\Pasante;
 use App\Models\Supervisor;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -45,5 +46,11 @@ class HomeController extends Controller
         $lastDateAsistencia = Asistencia::max('created_at');
         $dateFormatAsistencia = Carbon::parse($lastDateAsistencia)->format('d/m/Y');
         return view('home',compact('countDepartamento','fechaFormateada','countSupervisor','dateFormatSupervisor','countInstitucion','dateFormatInstitucion','countPasantes','dateFormatPasantes','countAsistencias','dateFormatAsistencia'));
+    }
+
+    public function cerrarSesion()
+    {
+        Auth::guard('web')->logout();
+        return redirect()->route('login');
     }
 }
