@@ -123,16 +123,16 @@
 
 
                             <li>
-                                <a href="{{ route('home') }}">
+                                <a href="{{ route('pasantes.dashboard') }}">
                                     <i class="fe-layers"></i>
-                                    <span> Home </span>
+                                    <span> Asistencias </span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{ route('departamentos.index') }}">
+                                <a href="#">
                                     <i class="fe-layers"></i>
-                                    <span> Departamentos </span>
+                                    <span> Asistencias </span>
                                 </a>
                             </li>
 

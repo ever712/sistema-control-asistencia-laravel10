@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asistencia;
 use App\Models\Departamento;
 use App\Models\Institucion;
 use App\Models\Pasante;
@@ -121,7 +122,9 @@ class PasanteController extends Controller
 
     public function indexDashboard()
     {
-        return view('admin.pasante.panel-pasante');
+        $asistenciaPasante = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)->get();
+
+        return view('admin.pasante.panel-pasante',compact('asistenciaPasante'));
     }
 
     public function cerrarSesion()
