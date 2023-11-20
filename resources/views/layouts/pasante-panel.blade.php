@@ -62,7 +62,7 @@
                             </div>
 
                             <!-- item-->
-                            <a href="{{ route('profile') }}" class="dropdown-item notify-item">
+                            <a href="{{ route('perfil.pasante') }}" class="dropdown-item notify-item">
                                 <i class="fe-lock"></i>
                                 <span>Perfil</span>
                             </a>
@@ -130,9 +130,9 @@
                             </li>
 
                             <li>
-                                <a href="#">
+                                <a href="{{ route('pasante.reporte') }}">
                                     <i class="fe-layers"></i>
-                                    <span> Asistencias </span>
+                                    <span> Reportes </span>
                                 </a>
                             </li>
 

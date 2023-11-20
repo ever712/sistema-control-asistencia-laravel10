@@ -80,4 +80,11 @@ Route::post('/pasante/login', [PasanteController::class, 'checkLogin'])->name('c
 Route::group(['middleware' => 'auth:pasante'], function () {
     Route::get('/pasante', [PasanteController::class, 'indexDashboard'])->name('pasantes.dashboard');
     Route::get('/pasante-logout', [PasanteController::class, 'cerrarSesion'])->name('pasantes.logout');
+    Route::get('/perfil-pasante', [PasanteController::class, 'perfilPasante'])->name('perfil.pasante');
+    Route::get('/edit-password/{id}', [PasanteController::class, 'editPassword'])->name('edit.password');
+    Route::post('/update-password', [PasanteController::class, 'updatePassword'])->name('update.password');
+    Route::get('/edit-pasante-image', [PasanteController::class, 'editImagePasante'])->name('edit-image.pasante');
+    Route::post('/update-pasante-image', [PasanteController::class, 'updateImagePasante'])->name('update-image.pasante');
+    Route::get('/pasante-reporte', [PasanteController::class, 'pasanteReporte'])->name('pasante.reporte');
+    Route::post('/pasante-datos', [PasanteController::class, 'buscarRangoAsistencia'])->name('buscar.asistencia');
 });

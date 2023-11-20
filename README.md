@@ -36,6 +36,14 @@
 
 - se incorpor a la vista de pasantes sus asistencias del pasante que se loguea a asu panel
 
+- se realizo la vista de perfil de pasante
+
+- opcion de cambiar contraseña del pasante
+
+- opcion de cambiar la foto de perfil del pasante
+
+- vista reportes con buscador por rangos de fecha mas datos del pasante
+
 ### IMPORTANTE
 
 - Tener la hora siempre sincronizado y a la hora correcta 24/7 el sistema se basa en el tiempo real
@@ -45,3 +53,13 @@
 ### LIBRERIAS
 - para la libreria Intervention Image se debe tener instalado la extension de php "gd" en caso de windows se debe descomentar la linea "extension:gd"
 - en kali linux se instala la extension de gd "sudo apt-get install php-gd"
+
+### CREDENCIALES
+
+- pasante
+derilreverr776@gmail.com
+EBELtinB
+- administrador
+admin@admin.com
+345ArrozyPollo&&
+

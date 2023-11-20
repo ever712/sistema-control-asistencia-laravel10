@@ -7,9 +7,12 @@ use App\Models\Departamento;
 use App\Models\Institucion;
 use App\Models\Pasante;
 use App\Models\Supervisor;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class PasanteController extends Controller
 {
@@ -132,4 +135,83 @@ class PasanteController extends Controller
         Auth::guard('pasante')->logout();
         return redirect()->route('view.login');
     }
+
+    public function perfilPasante(){
+        $profile = Pasante::find(Auth::guard('pasante')->user()->id);
+        $primerRegistro = Asistencia::where('pasante_id',$profile->id)
+            ->orderBy('ingreso', 'asc') // Asegúrate de que esté ordenado por ingreso ascendente
+            ->first();
+        $countAsistencias = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)->count();
+        return view('admin.pasante.perfil', compact('profile','primerRegistro','countAsistencias'));
+    }
+
+    public function editPassword($id){
+        return view('admin.pasante.edit-password');
+    }
+
+    public function updatePassword(Request $request){
+        Request()->validate([
+            'password' => ['required','string','min:8'],
+        ]);
+
+        $updatePassword = Pasante::find(Auth::guard('pasante')->user()->id);
+        $updatePassword->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('perfil.pasante');
+    }
+
+    public function editImagePasante(){
+        return view('admin.pasante.edit-image');
+    }
+
+    public function updateImagePasante(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // dd($request->image);
+        $destinationPath = 'assets/images/users';
+        $myImage = $request->image->hashName();
+
+        $img = Image::make($request->image->path());
+        $img->fit(128, 128);
+        $img->save(public_path($destinationPath . '/' . $myImage));
+
+        $pasante = Pasante::find((Auth::guard('pasante')->user()->id));
+
+        $pasante->update([
+            'image' => $myImage,
+        ]);
+
+        return redirect()->route('perfil.pasante');
+    }
+
+    public function pasanteReporte(){
+
+        $asistenciaPasante = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)->get();
+        $primerRegistro = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)
+            ->orderBy('ingreso', 'asc') // Asegúrate de que esté ordenado por ingreso ascendente
+            ->first();
+        return view('admin.pasante.reporte-pasante',compact('asistenciaPasante','primerRegistro'));
+    }
+
+    public function buscarRangoAsistencia(Request $request){
+        $fechaInicio = $request->start.' 00:00:00';
+        $fechaFin = $request->end.' 23:59:59';
+        // dd($fechaFin);
+    $asistenciaPasante = DB::table('asistencias')
+    ->where('pasante_id',Auth::guard('pasante')->user()->id )
+    ->whereBetween('ingreso', [$fechaInicio,$fechaFin])
+    ->get();
+
+        $primerRegistro = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)
+            ->orderBy('ingreso', 'asc') // Asegúrate de que esté ordenado por ingreso ascendente
+            ->first();
+        return view('admin.pasante.buscar-datos', compact('asistenciaPasante','primerRegistro'));
+    }
+
+
 }
