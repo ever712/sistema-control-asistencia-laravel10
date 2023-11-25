@@ -7,7 +7,7 @@
             <div class="card-box widget-box-two widget-two-custom">
                 <div class="media">
                     <div class="avatar-lg rounded-circle bg-primary widget-two-icon align-self-center">
-                        <i class="mdi mdi-currency-usd avatar-title font-30 text-white"></i>
+                        <i class="fas fa-building avatar-title font-30 text-white"></i>
                     </div>
 
                     <div class="wigdet-two-content media-body">
@@ -24,7 +24,7 @@
             <div class="card-box widget-box-two widget-two-custom">
                 <div class="media">
                     <div class="avatar-lg rounded-circle bg-primary widget-two-icon align-self-center">
-                        <i class="mdi mdi-currency-usd avatar-title font-30 text-white"></i>
+                        <i class="fas fa-user-tie avatar-title font-30 text-white"></i>
                     </div>
 
                     <div class="wigdet-two-content media-body">
@@ -41,7 +41,7 @@
             <div class="card-box widget-box-two widget-two-custom">
                 <div class="media">
                     <div class="avatar-lg rounded-circle bg-primary widget-two-icon align-self-center">
-                        <i class="mdi mdi-currency-usd avatar-title font-30 text-white"></i>
+                        <i class="fas fa-school avatar-title font-30 text-white"></i>
                     </div>
 
                     <div class="wigdet-two-content media-body">
@@ -58,7 +58,7 @@
             <div class="card-box widget-box-two widget-two-custom">
                 <div class="media">
                     <div class="avatar-lg rounded-circle bg-primary widget-two-icon align-self-center">
-                        <i class="mdi mdi-currency-usd avatar-title font-30 text-white"></i>
+                        <i class="fas fa-users avatar-title font-30 text-white"></i>
                     </div>
 
                     <div class="wigdet-two-content media-body">
@@ -76,7 +76,7 @@
             <div class="card-box widget-box-two widget-two-custom">
                 <div class="media">
                     <div class="avatar-lg rounded-circle bg-primary widget-two-icon align-self-center">
-                        <i class="mdi mdi-currency-usd avatar-title font-30 text-white"></i>
+                        <i class="far fa-sticky-note avatar-title font-30 text-white"></i>
                     </div>
 
                     <div class="wigdet-two-content media-body">

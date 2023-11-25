@@ -58,7 +58,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->
                             <div class="dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Welcome !</h6>
+                                <h6 class="text-overflow m-0">Bienvenido !</h6>
                             </div>
 
                             <!-- item-->
@@ -72,7 +72,7 @@
                             <!-- item-->
                             <a href="{{ route('admin.logout') }}" class="dropdown-item notify-item">
                                 <i class="fe-log-out"></i>
-                                <span>Logout</span>
+                                <span>Cerrar Sesión</span>
                             </a>
 
                             {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -124,42 +124,42 @@
 
                             <li>
                                 <a href="{{ route('home') }}">
-                                    <i class="fe-layers"></i>
+                                    <i class="fas fa-home"></i>
                                     <span> Home </span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('departamentos.index') }}">
-                                    <i class="fe-layers"></i>
+                                    <i class="fas fa-building"></i>
                                     <span> Departamentos </span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('supervisores.index') }}">
-                                    <i class="fe-layers"></i>
+                                    <i class="fas fa-user-tie"></i>
                                     <span> Supervisores </span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('display.instituciones') }}">
-                                    <i class="fe-layers"></i>
+                                    <i class="fas fa-school"></i>
                                     <span> Instituciones </span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('display.pasantes') }}">
-                                    <i class="fe-layers"></i>
+                                    <i class="fas fa-users"></i>
                                     <span> Pasantes </span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('display.asistencias') }}">
-                                    <i class="fe-layers"></i>
+                                    <i class="far fa-sticky-note"></i>
                                     <span> Asistencias </span>
                                 </a>
                             </li>
@@ -192,7 +192,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                2017 - 2019 &copy; Adminox theme by <a href="">Coderthemes</a>
+                                2023 &copy; Desarrollado por Ever - Pasante de Cotel
                             </div>
                         </div>
                     </div>

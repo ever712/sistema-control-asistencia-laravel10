@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PasanteController extends Controller
 {
@@ -125,9 +126,9 @@ class PasanteController extends Controller
 
     public function indexDashboard()
     {
-        $asistenciaPasante = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)->get();
+        $asistenciaPasante = Asistencia::where('pasante_id', Auth::guard('pasante')->user()->id)->get();
 
-        return view('admin.pasante.panel-pasante',compact('asistenciaPasante'));
+        return view('admin.pasante.panel-pasante', compact('asistenciaPasante'));
     }
 
     public function cerrarSesion()
@@ -136,22 +137,25 @@ class PasanteController extends Controller
         return redirect()->route('view.login');
     }
 
-    public function perfilPasante(){
+    public function perfilPasante()
+    {
         $profile = Pasante::find(Auth::guard('pasante')->user()->id);
-        $primerRegistro = Asistencia::where('pasante_id',$profile->id)
+        $primerRegistro = Asistencia::where('pasante_id', $profile->id)
             ->orderBy('ingreso', 'asc') // Asegúrate de que esté ordenado por ingreso ascendente
             ->first();
-        $countAsistencias = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)->count();
-        return view('admin.pasante.perfil', compact('profile','primerRegistro','countAsistencias'));
+        $countAsistencias = Asistencia::where('pasante_id', Auth::guard('pasante')->user()->id)->count();
+        return view('admin.pasante.perfil', compact('profile', 'primerRegistro', 'countAsistencias'));
     }
 
-    public function editPassword($id){
+    public function editPassword($id)
+    {
         return view('admin.pasante.edit-password');
     }
 
-    public function updatePassword(Request $request){
+    public function updatePassword(Request $request)
+    {
         Request()->validate([
-            'password' => ['required','string','min:8'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         $updatePassword = Pasante::find(Auth::guard('pasante')->user()->id);
@@ -162,7 +166,8 @@ class PasanteController extends Controller
         return redirect()->route('perfil.pasante');
     }
 
-    public function editImagePasante(){
+    public function editImagePasante()
+    {
         return view('admin.pasante.edit-image');
     }
 
@@ -189,29 +194,48 @@ class PasanteController extends Controller
         return redirect()->route('perfil.pasante');
     }
 
-    public function pasanteReporte(){
+    public function pasanteReporte()
+    {
 
-        $asistenciaPasante = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)->get();
-        $primerRegistro = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)
+        $asistenciaPasante = Asistencia::where('pasante_id', Auth::guard('pasante')->user()->id)->get();
+        $primerRegistro = Asistencia::where('pasante_id', Auth::guard('pasante')->user()->id)
             ->orderBy('ingreso', 'asc') // Asegúrate de que esté ordenado por ingreso ascendente
             ->first();
-        return view('admin.pasante.reporte-pasante',compact('asistenciaPasante','primerRegistro'));
+        return view('admin.pasante.reporte-pasante', compact('asistenciaPasante', 'primerRegistro'));
     }
 
-    public function buscarRangoAsistencia(Request $request){
-        $fechaInicio = $request->start.' 00:00:00';
-        $fechaFin = $request->end.' 23:59:59';
+    public function buscarRangoAsistencia(Request $request)
+    {
+        $fechaInicio = $request->start . ' 00:00:00';
+        $fechaFin = $request->end . ' 23:59:59';
         // dd($fechaFin);
-    $asistenciaPasante = DB::table('asistencias')
-    ->where('pasante_id',Auth::guard('pasante')->user()->id )
-    ->whereBetween('ingreso', [$fechaInicio,$fechaFin])
-    ->get();
+        $asistenciaPasante = DB::table('asistencias')
+            ->where('pasante_id', Auth::guard('pasante')->user()->id)
+            ->whereBetween('ingreso', [$fechaInicio, $fechaFin])
+            ->get();
 
-        $primerRegistro = Asistencia::where('pasante_id',Auth::guard('pasante')->user()->id)
+        $primerRegistro = Asistencia::where('pasante_id', Auth::guard('pasante')->user()->id)
             ->orderBy('ingreso', 'asc') // Asegúrate de que esté ordenado por ingreso ascendente
             ->first();
-        return view('admin.pasante.buscar-datos', compact('asistenciaPasante','primerRegistro'));
+
+        return view('admin.pasante.buscar-datos', compact('asistenciaPasante', 'primerRegistro', 'fechaInicio', 'fechaFin'));
     }
 
 
+
+    public function pdf($fechaInicio, $fechaFin)
+    {
+        // dd($fechaFin);
+        $primerRegistro = Asistencia::where('pasante_id', Auth::guard('pasante')->user()->id)
+            ->orderBy('ingreso', 'asc') // Asegúrate de que esté ordenado por ingreso ascendente
+            ->first();
+        $asistenciaPasante = DB::table('asistencias')
+            ->where('pasante_id', Auth::guard('pasante')->user()->id)
+            ->whereBetween('ingreso', [$fechaInicio, $fechaFin])
+            ->get();
+        $pasante = Pasante::find(Auth::guard('pasante')->user()->id);
+        $pdf = PDF::loadView('admin.pasante.pdf', compact('asistenciaPasante', 'primerRegistro','pasante'));
+
+        return $pdf->download('reporte_asistencia.pdf');
+    }
 }

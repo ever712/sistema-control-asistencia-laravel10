@@ -58,7 +58,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->
                             <div class="dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Welcome !</h6>
+                                <h6 class="text-overflow m-0">Bienvenido !</h6>
                             </div>
 
                             <!-- item-->
@@ -72,7 +72,7 @@
                             <!-- item-->
                             <a href="{{ route('pasantes.logout') }}" class="dropdown-item notify-item">
                                 <i class="fe-log-out"></i>
-                                <span>Logout</span>
+                                <span>Cerrar Sesión</span>
                             </a>
 
                             {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -124,14 +124,14 @@
 
                             <li>
                                 <a href="{{ route('pasantes.dashboard') }}">
-                                    <i class="fe-layers"></i>
+                                    <i class="far fa-sticky-note"></i>
                                     <span> Asistencias </span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('pasante.reporte') }}">
-                                    <i class="fe-layers"></i>
+                                    <i class="far fa-address-book"></i>
                                     <span> Reportes </span>
                                 </a>
                             </li>
@@ -164,7 +164,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                2017 - 2019 &copy; Adminox theme by <a href="">Coderthemes</a>
+                                2023 &copy; Desarrollado por Ever - Pasante de Cotel
                             </div>
                         </div>
                     </div>

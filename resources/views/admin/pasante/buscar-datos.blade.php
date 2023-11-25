@@ -29,6 +29,7 @@
                         </div>
                     </form>
                 </div>
+<a href="{{ url('/pasante-pdf', ['primer' => $fechaInicio, 'segundo' => $fechaFin]) }}" class="btn btn-primary" target="_blank">Descargar PDF</a>
                 <div class="card-box table-responsive">
 
                     <h2 class="text-center">CONTROL DE ASISTENCIA</h2>

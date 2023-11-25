@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Login | Adminox - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>Login Pasantes | AsisWebCotel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -37,8 +37,8 @@
                                             <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="30">
                                         </a>
                                     </div>
-                                    <h5 class="text-uppercase mb-1 mt-4">Sign In</h5>
-                                    <p class="mb-0">Login to your Admin account</p>
+                                    <h5 class="text-uppercase mb-1 mt-4">INICIAR SESION</h5>
+                                    <p class="mb-0">Inicie sesión en su cuenta de pasante</p>
                                 </div>
 
                                 <div class="account-content mt-4">
@@ -48,7 +48,7 @@
 
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <label for="emailaddress">Email address</label>
+                                                <label for="emailaddress">Dirección de correo electrónico</label>
 
                                                 <input id="email" type="email"
                                                     class="form-control @error('email') is-invalid @enderror"
@@ -65,13 +65,10 @@
 
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <a href="page-recoverpw.html"
-                                                    class="text-muted float-right"><small>Forgot your
-                                                        password?</small></a>
-                                                <label for="password">Password</label>
+                                                <label for="password">Contraseña</label>
                                                 <input id="password" type="password"
                                                     class="form-control @error('password') is-invalid @enderror"
-                                                    name="password" required placeholder="Enter your password"
+                                                    name="password" required placeholder="Ingrese su contraseña"
                                                     autocomplete="current-password">
 
                                                 @error('password')
@@ -88,37 +85,13 @@
                                             <div class="col-12">
                                                 <button
                                                     class="btn btn-md btn-block btn-primary waves-effect waves-light"
-                                                    type="submit">Sign In
+                                                    type="submit">Iniciar Sesión
                                                 </button>
 
-                                                @if (Route::has('password.request'))
-                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                        {{ __('Forgot Your Password?') }}
-                                                    </a>
-                                                @endif
                                             </div>
                                         </div>
 
                                     </form>
-
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="text-center">
-                                                <button type="button"
-                                                    class="btn mr-1 btn-facebook waves-effect waves-light">
-                                                    <i class="fab fa-facebook-f"></i>
-                                                </button>
-                                                <button type="button"
-                                                    class="btn mr-1 btn-googleplus waves-effect waves-light">
-                                                    <i class="fab fa-google"></i>
-                                                </button>
-                                                <button type="button"
-                                                    class="btn mr-1 btn-twitter waves-effect waves-light">
-                                                    <i class="fab fa-twitter"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </div>
                             </div>
