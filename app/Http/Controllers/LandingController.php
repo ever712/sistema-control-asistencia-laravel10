@@ -31,7 +31,7 @@ class LandingController extends Controller
             // dd("realizar una accion");
             $createAsistencia =  Asistencia::create([
                 'pasante_id' => $buscarPasante->id,
-                'observacion' => 'Entrada: '.$observacion,
+                'observacion' => $observacion,
                 'ingreso' => now(),
                 'salida' => null
             ]);
@@ -43,7 +43,7 @@ class LandingController extends Controller
 
             $createAsistencia =  Asistencia::create([
                 'pasante_id' => $buscarPasante->id,
-                'observacion' => 'Entrada: '.$observacion,
+                'observacion' => $observacion,
                 'ingreso' => now(),
                 'salida' => null
             ]);
@@ -51,7 +51,7 @@ class LandingController extends Controller
                 return redirect('/')->with('create','Bienvenido '.$buscarPasante->nombre .', se ha registrado la entrada correctamente, no olvide registrar la salida. Que tenga un buen día');
             }
         } else {
-            $obsUpdate = $verificarSalida->observacion . ' | Salida: ' . $observacion;
+            $obsUpdate = $verificarSalida->observacion . ' ' . $observacion;
             $verificarSalida->update([
                 'observacion' => $obsUpdate,
                 'salida' => now(),

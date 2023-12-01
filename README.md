@@ -63,3 +63,9 @@ EBELtinB
 admin@admin.com
 345ArrozyPollo&&
 
+### AGREGAR ESTAS FUNCIONALIDADES AL SISTEMA DE CONTROL DE ASISTENCIA
+
+- agregar fecha de reporte
+- agregar campos semestre, carrera en la tabla de pasantes
+- dividir el campo nombre en campo nombres y apellidos en la tabla pasantes
+- agregar permisos (ejemplo: tema de salud, team de actividades universitarias, etc)

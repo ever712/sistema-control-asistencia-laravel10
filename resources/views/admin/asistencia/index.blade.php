@@ -43,8 +43,12 @@
                                 <tr>
                                     <td>{{ \Carbon\Carbon::parse($item->ingreso)->format('d-m-Y') }}</td>
                                     <td>{{ $item->pasante->nombre }}</td>
-                                    <td>{{ $item->ingreso }}</td>
-                                    <td>{{ $item->salida }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($item->ingreso)->format('H:i:s') }}</td>
+                                    @if($item->salida !== null)
+                                    <td>{{ \Carbon\Carbon::parse($item->salida)->format('H:i:s') }}</td>
+                                    @else
+                                    <td>No Registrado</td>
+                                    @endif
                                     <td>{{ $item->observacion }}</td>
                                     <td>
                                         <a href="{{ route('edit.asistencias', $item->id) }}"

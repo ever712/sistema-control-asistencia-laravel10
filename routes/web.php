@@ -36,7 +36,6 @@ Auth::routes();
 
 
 
-Route::group(['middleware' => 'auth:web'], function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -74,7 +73,6 @@ Route::post('/update-profile', [UsersController::class, 'updateUsuario'])->name(
 Route::get('/edit-profile-image/{id}', [UsersController::class, 'editImageUsuario'])->name('edit-image.usuarios');
 Route::post('/update-profile-image', [UsersController::class, 'updateImageUsuario'])->name('update-image.usuarios');
 Route::get('/admin-logout', [HomeController::class, 'cerrarSesion'])->name('admin.logout');
-});
 
 
 // PASANTES AUTHENTICATION

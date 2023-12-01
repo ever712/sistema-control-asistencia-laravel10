@@ -24,7 +24,10 @@
 
                 </div>
              
-                <input type="submit" class="btn btn-primary" value="Editar">
+                <div class="d-flex justify-content-end">
+                    <a href="{{ route('display.instituciones') }}" class="btn btn-danger">Volver</a>
+                    <input type="submit" class="btn btn-primary ml-2" value="Editar">
+                </div>
             </form>
         </div>
     </div>

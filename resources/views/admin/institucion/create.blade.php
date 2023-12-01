@@ -25,8 +25,11 @@
                     @enderror
 
                 </div>
-             
-                <input type="submit" class="btn btn-primary" value="Crear">
+                <div class="d-flex justify-content-end">
+                    <a href="{{ route('display.instituciones') }}" class="btn btn-danger">Volver</a>
+                    <input type="submit" class="btn btn-primary ml-2" value="Crear">
+                </div>
+
             </form>
         </div>
     </div>

@@ -53,13 +53,7 @@
     <div class="card-box">
 
         <h2 class="text-center">CONTROL DE ASISTENCIA</h2>
-        <div class="account-box">
-
-            <div class="account-content">
-                <div class="panel-body">
-                    <div class="d-flex justify-content-between">
-                        <div class="">
-                            <p class="text-muted font-13"><strong>NOMBRE COMPLETO: </strong><span
+<p class="text-muted font-13"><strong>NOMBRE COMPLETO: </strong><span
                                     class="">{{ Auth::guard('pasante')->user()->nombre }}</span></p>
                             <p class="text-muted font-13"><strong>INSTITUCION: </strong><span
                                     class="">{{ Auth::guard('pasante')->user()->institucion->nombre }}
@@ -67,27 +61,29 @@
                             <p class="text-muted font-13"><strong>DEPARTAMENTO: </strong><span
                                     class="">{{ Auth::guard('pasante')->user()->departamento->nombre }}</span>
                             </p>
-                            @if ($primerRegistro)
-                                <p class="text-muted font-13"><strong>FECHA DE INICIO: </strong><span
-                                        class="">{{ \Carbon\Carbon::parse($primerRegistro->ingreso)->format('d/m/Y') }}</span>
+                                <p class="text-muted font-13"><strong>FECHA DE REPORTE: </strong><span
+                                        class="">{{ \Carbon\Carbon::parse(now())->format('d/m/Y') }}</span>
                                 </p>
-                            @else
-                                <p class="text-muted font-13"><strong>FECHA DE INICIO: </strong><span
-                                        class="text-danger">Registre su primera Asistencia</span></p>
-                            @endif
+        <!-- <div class="account-box">
+
+            <div class="account-content">
+                <div class="panel-body">
+                    <div class="d-flex justify-content-between">
+                        <div class="">
+                            
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Fecha</th>
                     <th>Ingreso</th>
                     <th>Salida</th>
-                    <th class="col-4 text-truncate">Observaciones</th>
+                    <th>Observaciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -105,8 +101,9 @@
                 @endforeach
             </tbody>
         </table>
+        <br><br>
         <div class="text-right mt-4">
-            <div style="border-bottom: 1px solid #333; width: 150px; margin: 0 auto;"></div>
+            <div style="border-bottom: 1px solid #333; width: 250px; margin: 0 auto;"></div>
             <p class="text-center mb-0 mt-0">{{ $pasante->supervisor->cargo }}</p>
             <p class="text-center">{{ $pasante->supervisor->nombre }}</p>
         </div>
