@@ -214,4 +214,37 @@ update asistencias set ingreso = '2023-12-01 08:33:39' , salida = '2023-12-01 16
 
 delete from asistencias where id = 2;
 
-ALTER TABLE pasantes ADD COLUMN ci varchar(255) null AFTER email;
+
+create table semestres(
+  id int auto_increment primary key,
+  nombre varchar(255),
+  created_at timestamp default current_timestamp,
+  updated_at timestamp default current_timestamp
+);
+
+insert into semestres (nombre) values('Primero');
+insert into semestres (nombre) values('Segundo');
+insert into semestres (nombre) values('Tercero');
+insert into semestres (nombre) values('Cuarto');
+insert into semestres (nombre) values('Quinto');
+insert into semestres (nombre) values('Sexto');
+insert into semestres (nombre) values('Séptimo');
+insert into semestres (nombre) values('Octavo');
+insert into semestres (nombre) values('Noveno');
+insert into semestres (nombre) values('Décimo');
+
+create table carreras(
+  id int auto_increment primary key,
+  nombre varchar(255),
+  created_at timestamp default current_timestamp,
+  updated_at timestamp default current_timestamp
+);
+
+insert into carreras (nombre) values ('INGENIERIA DE SISTEMAS');
+insert into carreras (nombre) values ('CIENCIAS DEL DESARROLLO');
+insert into carreras (nombre) values ('ADMINISTRACION DE EMPRESAS');
+insert into carreras (nombre) values ('INGENIERIA ELECTRONICA');
+insert into carreras (nombre) values ('ECONOMIA');
+
+
+ALTER TABLE pasantes ADD COLUMN carrera_id int null AFTER institucion_id;

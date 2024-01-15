@@ -58,7 +58,7 @@
 
 - pasante
 derilreverr776@gmail.com
-EBELtinB
+*********
 - administrador
 admin@admin.com
 345ArrozyPollo&&
